@@ -6,7 +6,7 @@ source scripts/common.sh
 
 WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0")a)))"
 
-PREFIX=$WDIR/build/tesseract
+PREFIX=$WDIR/tesseract
 mkdir -p $PREFIX
 
 pushd tesseract

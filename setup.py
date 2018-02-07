@@ -10,7 +10,7 @@ with open('README.md') as f:
 
 # Get the Tesseract version from its source code.
 tesseract_version=None
-with open('tesseract/api/baseapi.h') as f:
+with open('tesseract-src/api/baseapi.h') as f:
     for line in f.readlines():
         if re.search('TESSERACT_VERSION_STR', line) is not None:
             tesseract_version=line.strip().split(' ')[-1].strip('"')
