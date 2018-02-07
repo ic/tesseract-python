@@ -4,7 +4,7 @@ set -e
 
 source scripts/common.sh
 
-WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0")a)))"
+WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 
 PREFIX=$WDIR/tesseract
 mkdir -p $PREFIX
