@@ -1,10 +1,10 @@
-#from setuptools import setup, find_packages
+from setuptools import setup, find_packages
 #from setuptools.dist import Distribution
-from distutils.core import setup, find_packages
 import os
+import re
 
 # Get the long description from the README.
-with open('README.md', encoding='utf-8') as f:
+with open('README.md') as f:
     long_description = f.read()
 
 
