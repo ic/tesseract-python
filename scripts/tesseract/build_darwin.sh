@@ -9,7 +9,7 @@ WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 PREFIX=$WDIR/tesseract
 mkdir -p $PREFIX
 
-pushd tesseract
+pushd tesseract-src
 ./autogen.sh
 if [[ -x '/opt/local/bin/port' ]]
 then

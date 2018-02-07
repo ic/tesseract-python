@@ -9,7 +9,7 @@ WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 PREFIX=$WDIR/tesseract
 mkdir -p $PREFIX
 
-pushd tesseract
+pushd tesseract-src
 ./autogen.sh
 ./configure --prefix=$PREFIX
 make
