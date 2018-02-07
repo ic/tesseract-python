@@ -22,7 +22,7 @@ if tesseract_version is None:
 # Configure the package data files to include.
 package_data = {}
 if os.name == 'posix':
-    package_data['tesseract'] = ['*.so']
+    package_data['tesseract'] = ['*.so', '*.dylib']
 else:
     package_data['tesseract'] = ['*.pyd', '*.dll']
 
