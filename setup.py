@@ -30,17 +30,9 @@ for dir_path, _, file_names in os.walk('lib/tesseract'):
 package_data = { 'lib': package_data_files }
 
 
-# Get the dependcy list.
+# Get the dependency list.
 with open('requirements.txt') as f:
     dependencies = [ req for req in f.readlines() ]
-
-
-# Trick from https://github.com/skvark/opencv-python/blob/master/setup.py
-# This creates a list which is empty but returns a length of 1.
-# Should make the wheel a binary distribution and platlib compliant.
-class EmptyListWithLength(list):
-    def __len__(self):
-        return 1
 
 
 # Setup
