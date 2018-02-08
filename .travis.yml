@@ -1,7 +1,24 @@
-language: python
 dist: trusty
 sudo: required
 services: docker
+
+matrix:
+  include:
+    - os: osx
+      language: generic
+      env:
+        - PYTHON_VERSION="2.7"
+    - os: osx
+      language: generic
+      env:
+        - PYTHON_VERSION="3.6"
+    - os: linux
+      python: "2.7"
+    - os: linux
+      python: "3.6"
+
+install:
+  - if [[ -n $PYTHON_VERSION ]]; then bash scripts/travisci_osx_ensure_python.sh; fi
 
 script:
   - make
@@ -9,13 +26,3 @@ script:
 after_success:
   - make distribute
 
-matrix:
-  include:
-    - os: osx
-      python: "2.7"
-    - os: osx
-      python: "3.6"
-    - os: linux
-      python: "2.7"
-    - os: linux
-      python: "3.6"
