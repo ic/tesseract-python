@@ -73,6 +73,6 @@ setup(
         'Topic :: Scientific/Engineering :: Image Recognition',
         'Topic :: Software Development',
     ],
-    maintainer='Eric Platon'
+    maintainer='Eric Platon',
+    maintainer_email='zaraki@gmx.com'
 )
-
