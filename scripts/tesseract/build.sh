@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ev
 
 SYSTEM_NAME=`uname -s | tr '[:upper:]' '[:lower:]'`
 

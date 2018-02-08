@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ev
 
 if [[ -x '/opt/local/bin/port' ]]
 then
