@@ -6,4 +6,4 @@
 
 VERSION=${PYTHON_VERSION:-"2.7"}
 
-brew install python$VERSION
+brew install homebrew/versions/python$VERSION
