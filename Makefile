@@ -20,7 +20,7 @@ tesseract:
 	sh scripts/tesseract/build.sh
 
 tesseract-clean:
-	rm -rf lib/tesseract
+	rm -rf tesseract_python/tesseract
 
 venv:
 	virtualenv venv
