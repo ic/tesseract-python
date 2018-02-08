@@ -49,7 +49,6 @@ setup(
     include_package_data=True,
     #eager_resources=package_data_files,
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Intended Audience :: Education',
@@ -64,8 +63,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: C++',
         'Programming Language :: Python :: Implementation :: CPython',
