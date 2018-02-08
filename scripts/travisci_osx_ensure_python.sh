@@ -6,4 +6,10 @@
 
 VERSION=${PYTHON_VERSION:-"2.7"}
 
-brew install homebrew/versions/python$VERSION
+if [[ $VERSION = "2.7" ]]
+then
+  brew install python
+else
+  ver=`echo $VERSION | tr -d '.'`
+  brew install python@$ver.rb
+fi
