@@ -20,11 +20,14 @@ if tesseract_version is None:
 
 
 # Configure the package data files to include.
-package_data = {}
-if os.name == 'posix':
-    package_data['tesseract'] = ['*.so', '*.dylib']
-else:
-    package_data['tesseract'] = ['*.pyd', '*.dll']
+package_data_files = []
+for dir_path, _, file_names in os.walk('lib/tesseract'):
+    path_elements = dir_path.split(os.sep)[1:]
+    for f in file_names:
+        path_elements.append(f)
+        fpath = os.sep.join(path_elements)
+        package_data_files.append(fpath)
+package_data = { 'lib': package_data_files }
 
 
 # Get the dependcy list.

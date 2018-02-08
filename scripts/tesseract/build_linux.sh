@@ -6,7 +6,7 @@ source scripts/common.sh
 
 WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 
-PREFIX=$WDIR/tesseract
+PREFIX=$WDIR/lib/tesseract
 mkdir -p $PREFIX
 
 pushd tesseract-src
