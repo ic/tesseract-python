@@ -6,6 +6,15 @@ SHELL:=bash
 
 build: venv tesseract
 
+wheel: build
+	source venv/bin/activate
+	python setup.py bdist_wheel
+
+distribute: wheel
+	source venv/bin/activate
+	pip install --upgrade twine
+	echo DISTRIBUTE TODO
+
 tesseract:
 	sh scripts/tesseract/dep.sh
 	sh scripts/tesseract/build.sh
