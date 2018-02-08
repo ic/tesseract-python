@@ -7,11 +7,11 @@ SHELL:=bash
 build: venv tesseract
 
 wheel: build
-	source venv/bin/activate
+	source ./venv/bin/activate
 	python setup.py bdist_wheel
 
 distribute: wheel
-	source venv/bin/activate
+	source ./venv/bin/activate
 	pip install --upgrade twine
 	echo DISTRIBUTE TODO
 
@@ -24,7 +24,7 @@ tesseract-clean:
 
 venv:
 	virtualenv venv
-	source venv/bin/activate
+	source ./venv/bin/activate
 	pip install -r requirements.txt
 
 venv-clean:
