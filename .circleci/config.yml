@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  linux_3.6.1:
+    docker:
+      - image: circleci/python:3.6.1
+    steps:
+      - checkout
+      - run: make
