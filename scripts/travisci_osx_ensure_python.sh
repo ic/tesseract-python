@@ -8,8 +8,8 @@ VERSION=${PYTHON_VERSION:-"2.7"}
 
 if [[ $VERSION = "2.7" ]]
 then
-  brew install python
+  brew upgrade python
 else
   ver=`echo $VERSION | tr -d '.'`
-  brew install python@$ver.rb
+  brew install python3@$ver.rb
 fi
