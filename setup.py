@@ -47,7 +47,7 @@ setup(
     package_data=package_data,
     install_requires=dependencies,
     include_package_data=True,
-    ext_modules=EmptyListWithLength(),
+    #eager_resources=package_data_files,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
