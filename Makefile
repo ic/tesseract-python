@@ -15,7 +15,14 @@ distribute: wheel
 	pip install --upgrade twine
 	echo DISTRIBUTE TODO
 
-tesseract:
+leptonica:
+	sh scripts/leptonica/dep.sh
+	sh scripts/leptonica/build.sh
+
+leptonica-clean:
+	rm -rf tesseract_python/leptonica
+
+tesseract: leptonica
 	sh scripts/tesseract/dep.sh
 	sh scripts/tesseract/build.sh
 
@@ -30,5 +37,5 @@ venv:
 venv-clean:
 	rm -rf venv
 
-clean: tesseract-clean
+clean: tesseract-clean leptonica-clean
 	rm -rf build dist tesseract_python.egg-info
