@@ -9,8 +9,7 @@ then
     autoconf-archive \
     automake \
     libtool \
-    pkgconfig \
-    leptonica
+    pkgconfig
 elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
@@ -22,7 +21,6 @@ then
     libtool \
     pkgconfig \
     icu4c \
-    leptonica \
     gcc
 else
   echo "Could not find MacPorts or Homebrew in standard locations, aborting."
