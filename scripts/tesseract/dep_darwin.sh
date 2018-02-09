@@ -2,7 +2,7 @@
 
 set -ev
 
-if [[ -x '/opt/local/bin/port' ]]
+if [ -x '/opt/local/bin/port' ]
 then
   echo "Getting dependencies with MacPorts."
   sudo port install autoconf \
@@ -11,7 +11,7 @@ then
     libtool \
     pkgconfig \
     leptonica
-elif [[ -x '/usr/local/bin/brew' ]]
+elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"

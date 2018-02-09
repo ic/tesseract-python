@@ -2,7 +2,7 @@
 
 set -ev
 
-if [[ -x '/usr/bin/apt-get' ]]
+if [ -x '/usr/bin/apt-get' ]
 then
   # TODO
   echo "UNTESTED"
@@ -18,7 +18,7 @@ then
     libjpeg8-dev \
     libtiff5-dev \
     zlib1g-dev
-elif [[ -x '/usr/bin/yum' ]]
+elif [ -x '/usr/bin/yum' ]
 then
   # TODO
   echo "UNTESTED"

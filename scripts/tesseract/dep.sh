@@ -4,7 +4,7 @@ set -ev
 
 SYSTEM_NAME=`uname -s | tr '[:upper:]' '[:lower:]'`
 
-if [[ $SYSTEM_NAME ]]
+if [ -n "$SYSTEM_NAME" ]
 then
   bash scripts/tesseract/dep_$SYSTEM_NAME.sh
 else

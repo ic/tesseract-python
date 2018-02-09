@@ -11,7 +11,7 @@ mkdir -p $PREFIX
 
 pushd tesseract-src
 ./autogen.sh
-if [[ -x '/opt/local/bin/port' ]]
+if [ -x '/opt/local/bin/port' ]
 then
   echo "Getting dependencies with MacPorts."
   ./configure \
@@ -21,7 +21,7 @@ then
     LDFLAGS=-L/opt/local/lib \
     CPPFLAGS=-I/opt/local/include
   make
-elif [[ -x '/usr/local/bin/brew' ]]
+elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"
