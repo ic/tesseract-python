@@ -1,26 +1,106 @@
+env:
+  global:
+    - REPO_DIR=tesseract-src
+    - BUILD_COMMIT=215866151e774972c9502282111b998d7a053562
+    - BUILD_DEPENDS=
+    - TEST_DEPENDS=
+    - PLAT=x86_64
+    - UNICODE_WIDTH=32
+    - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
+    - secure: "T9fkthzjZTsGtlG7BRpdIkG5lgUT1WguscKIhmkJY00x4ZSDkAE2ZfM08GygoMyS5XCl61tobDOkRFeO27fmp+xSZ+KLqcKF5I9hpOX/iozA9uJBUsxeUMa+twJ0PrK3Yx6qBzSmjr02kt6dZW4cNaEjbzYbvv4hggKoE/hqq9K9PM1hAWPk62YkKfK3Z7aQtUMG2LdD339sdqCvlyTIedXPku1QzNR2f8Limw/7No/KR0mEs9B3d0kG3QLdhMU2AjoRATdriXvprLxwjgp5rmce3zdYzbgVLP9rUj36iV9/0+q0fAE3eDrFiZ8UarLp12A12mRy5RdrMiA8+19OWl46WBvCqSdzz46TbFy4Qf93J5h9lyi6nOY4JjfL7PtXbzcY1OajQ6LEwnEEEqZjYK0ACa1C6Cm/PcC7By51gA9TKtG9bX7q8kEWELBOb5aq8XY679MR0db+dmYlF7h34KuXy66inahU7aptbvoTg9Tu7IPeDTRBorpmKLIBrbyZstfRZjSQbGVYtFQYycoX/DzbdtqW4LsIJvqXYdzU2qyt6MHhLLinkAGK8CjQb6RxFdZAojVMDFtcjX9Hb4P3LYPtCHW7+M8NkNFjX9G6XzniLtCjFcy2KIqqXpTGO57T6e5vwpfhC3R/7+CjulR9NwJu4dicdS2NiSB309GZ9z0="
+
+language: python
+python: 3.5
+sudo: required
 dist: trusty
+services: docker
 
 matrix:
+  exclude:
+    # Exclude the default Python 3.5 build
+    - python: 3.5
   include:
+    - os: linux
+      env: MB_PYTHON_VERSION=2.7
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - UNICODE_WIDTH=16
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - PLAT=i686
+        - UNICODE_WIDTH=16
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.3
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.3
+        - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.4
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.4
+        - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.5
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.5
+        - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.6
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.6
+        - PLAT=i686
     - os: osx
       language: generic
       env:
-        - PYTHON_VERSION="2.7"
+        - MB_PYTHON_VERSION=2.7
     - os: osx
       language: generic
       env:
-        - PYTHON_VERSION="3.6"
-    - os: linux
-      python: "2.7"
-    - os: linux
-      python: "3.6"
+        - MB_PYTHON_VERSION=3.4
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.5
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.6
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=pypy-5.7
+
+before_install:
+  - source multibuild/common_utils.sh
+  - source multibuild/travis_steps.sh
+  - before_install
+  # Make Tesseract
+  - make
 
 install:
-  - if [[ -n $PYTHON_VERSION ]]; then bash scripts/travisci_osx_ensure_python.sh; fi
+  - clean_code $REPO_DIR $BUILD_COMMIT
+  - build_wheel $REPO_DIR $PLAT
+
+script:
+  - install_run $PLAT
 
 script:
   - make
 
 after_success:
   - make distribute
-
+  - source travis/deploy.sh
