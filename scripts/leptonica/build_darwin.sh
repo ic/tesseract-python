@@ -25,12 +25,7 @@ elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"
-  ./configure \
-    --prefix=$PREFIX \
-    CC=clang \
-    CXX=clang++ \
-    CPPFLAGS=-I/usr/local/opt/icu4c/include \
-    LDFLAGS=-L/usr/local/opt/icu4c/lib
+  ./configure --prefix=$PREFIX
   make
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
