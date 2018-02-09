@@ -25,6 +25,7 @@ wheels/
 .installed.cfg
 *.egg
 tesseract_python/tesseract/
+tesseract_python/leptonica/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
