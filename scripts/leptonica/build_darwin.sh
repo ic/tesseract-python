@@ -10,6 +10,7 @@ PREFIX=$WDIR/tesseract_python/leptonica
 mkdir -p $PREFIX
 
 pushd leptonica-src
+./autobuild
 if [ -x '/opt/local/bin/port' ]
 then
   echo "Building with MacPorts."

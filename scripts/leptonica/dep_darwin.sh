@@ -10,9 +10,7 @@ then
     automake \
     jpeg \
     tiff \
-    libpng \
-    webp \
-    openjpeg
+    libpng
 elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
@@ -26,8 +24,6 @@ then
     jpeg \
     tiff \
     libpng \
-    webp \
-    openjpeg
     gcc
 else
   echo "Could not find MacPorts or Homebrew in standard locations, aborting."
