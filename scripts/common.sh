@@ -4,7 +4,7 @@ function get_realpath() {
   if [ "$(uname -s)" == "Darwin" ]
   then
     local queue="$1"
-    if [ "${queue}" != /* ]
+    if [ "${queue}" != "/*" ]
     then
       # Make sure we start with an absolute path.
       queue="${PWD}/${queue}"
@@ -17,7 +17,7 @@ function get_realpath() {
       # Pull the first path segment off of queue.
       local segment="${queue%%/*}"
       # If this is the last segment.
-      if [ "${queue}" != */* ]
+      if [ "${queue}" != "*/*" ]
       then
         segment="${queue}"
         queue=""
