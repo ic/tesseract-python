@@ -89,7 +89,7 @@ before_install:
   - source multibuild/travis_steps.sh
   - before_install
   # Make Tesseract
-  - travis_wait 120 make
+  - make
 
 install:
   - clean_code $REPO_DIR $BUILD_COMMIT
