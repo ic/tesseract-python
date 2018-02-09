@@ -27,8 +27,8 @@ then
   echo "UNTESTED"
   ./configure \
     --prefix=$PREFIX \
-    CC=gcc-6 \
-    CXX=g++-6 \
+    CC=clang \
+    CXX=clang++ \
     CPPFLAGS=-I/usr/local/opt/icu4c/include \
     LDFLAGS=-L/usr/local/opt/icu4c/lib
   make -j
