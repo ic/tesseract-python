@@ -6,11 +6,10 @@ source scripts/common.sh
 
 WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 
-PREFIX=$WDIR/tesseract_python/tesseract
+PREFIX=$WDIR/tesseract_python/leptonica
 mkdir -p $PREFIX
 
-pushd tesseract-src
-./autogen.sh
+pushd leptonica-src
 if [ -x '/opt/local/bin/port' ]
 then
   echo "Building with MacPorts."
