@@ -31,7 +31,7 @@ then
     CXX=clang++ \
     CPPFLAGS=-I/usr/local/opt/icu4c/include \
     LDFLAGS=-L/usr/local/opt/icu4c/lib
-  make -j
+  make
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
 fi
