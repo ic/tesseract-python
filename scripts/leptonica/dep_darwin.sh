@@ -21,8 +21,8 @@ then
     autoconf-archive \
     libtool \
     pkgconfig \
-    jpeg \
-    tiff \
+    libjpeg \
+    libtiff \
     libpng \
     gcc
 else
