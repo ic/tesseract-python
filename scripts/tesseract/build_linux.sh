@@ -17,8 +17,8 @@ pushd tesseract-src
 ./autogen.sh
 LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
   --prefix=$PREFIX \
-  --with-extra-libraries=$LEPTONICA_HOME/lib \
-  --with-extra-includes=$LEPTONICA_HOME/include
+  LDFLAGS=-L$LEPTONICA_HOME/lib \
+  CPPFLAGS=-I$LEPTONICA_HOME/include
 make
 make install
 popd
