@@ -9,6 +9,10 @@ WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 PREFIX=$WDIR/tesseract_python/tesseract
 mkdir -p $PREFIX
 
+LEPTONICA_HOME=$WDIR/tesseract_python/leptonica
+
+echo "Will build with Leptonica at $LEPTONICA_HOME"
+
 pushd tesseract-src
 ./autogen.sh
 LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
