@@ -15,8 +15,7 @@ tesseract-clean:
 
 venv:
 	virtualenv venv
-	source venv/bin/activate
-	pip install -r requirements.txt
+	source venv/bin/activate && pip install -r requirements.txt
 
 venv-clean:
 	rm -rf venv
