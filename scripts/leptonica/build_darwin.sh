@@ -25,6 +25,7 @@ elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"
+  export PATH=/usr/local/bin:$PATH
   ./configure --prefix=$PREFIX
   make
 else

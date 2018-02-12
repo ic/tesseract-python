@@ -8,6 +8,7 @@ then
   sudo port install autoconf \
     autoconf-archive \
     automake \
+    libtool \
     jpeg \
     tiff \
     libpng
