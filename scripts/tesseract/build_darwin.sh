@@ -26,7 +26,6 @@ then
     --with-extra-includes=$LEPTONICA_HOME/include \
     LDFLAGS=-L/opt/local/lib \
     CPPFLAGS=-I/opt/local/include
-  make
 elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
@@ -37,12 +36,13 @@ then
     --with-extra-includes=$LEPTONICA_HOME/include \
     CC=clang \
     CXX=clang++ \
-    CPPFLAGS=-I/usr/local/opt/icu4c/include \
-    LDFLAGS=-L/usr/local/opt/icu4c/lib
-  make
+    CPPFLAGS=-I/usr/local/opt/icu4c/include -I $LEPTONICA_HOME/include \
+    LDFLAGS=-L/usr/local/opt/icu4c/lib -L$LEPTONICA_HOME/lib
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
 fi
+
+make
 
 make install
 popd
