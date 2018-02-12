@@ -36,8 +36,8 @@ then
     --with-extra-includes=$LEPTONICA_HOME/include \
     CC=clang \
     CXX=clang++ \
-    CPPFLAGS=-I/usr/local/opt/icu4c/include -I $LEPTONICA_HOME/include \
-    LDFLAGS=-L/usr/local/opt/icu4c/lib -L$LEPTONICA_HOME/lib
+    CPPFLAGS="-I/usr/local/opt/icu4c/include -I $LEPTONICA_HOME/include" \
+    LDFLAGS="-L/usr/local/opt/icu4c/lib -L$LEPTONICA_HOME/lib"
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
 fi
