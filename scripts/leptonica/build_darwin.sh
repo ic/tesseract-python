@@ -25,8 +25,9 @@ elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"
-  export PATH=/usr/local/bin:$PATH
-  ./configure --prefix=$PREFIX
+  ./configure \
+    --prefix=$PREFIX \
+    CFLAGS="-m64"
   make
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
