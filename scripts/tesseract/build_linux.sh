@@ -19,7 +19,8 @@ PKG_CONFIG_PATH=/home/electreric/src/git/tesseract-python/tesseract_python/lepto
 LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
   --prefix=$PREFIX \
   LDFLAGS=-L$LEPTONICA_HOME/lib \
-  CPPFLAGS=-I$LEPTONICA_HOME/include
+  CPPFLAGS=-I$LEPTONICA_HOME/include \
+  LIBS="-llept"
 make
 make install
 popd
