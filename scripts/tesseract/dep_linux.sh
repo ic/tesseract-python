@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ev
+set -ex
 
 if [ -x '/usr/bin/apt-get' ]
 then
