@@ -2,8 +2,6 @@
 
 source venv/bin/activate
 
-pip install --upgrade twine
-
 if [ -n "$TRAVIS_TAG" ]
 then
   ls -l $TRAVIS_BUILD_DIR
