@@ -21,7 +21,9 @@ matrix:
     - python: 3.5
   include:
     - os: linux
-      env: MB_PYTHON_VERSION=2.7
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - PLAT_NAME=linux
   #    - os: linux
   #      env:
   #        - MB_PYTHON_VERSION=2.7
@@ -67,6 +69,7 @@ matrix:
       language: generic
       env:
         - MB_PYTHON_VERSION=2.7
+        - PLAT_NAME=macosx
   #    - os: osx
   #      language: generic
   #      env:
