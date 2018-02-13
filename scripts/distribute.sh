@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 source venv/bin/activate
 
 if [ -n "$TRAVIS_TAG" ]
