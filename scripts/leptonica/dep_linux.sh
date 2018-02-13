@@ -22,6 +22,7 @@ then
   # TODO
   echo "UNTESTED"
   echo "Getting dependencies with Yum."
+  yum list installed
   yum install -y g++ \
     autoconf \
     automake \
