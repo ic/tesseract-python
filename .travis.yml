@@ -92,8 +92,7 @@ before_install:
   - make
 
 install:
-  - clean_code $REPO_DIR $BUILD_COMMIT
-  - build_wheel $REPO_DIR $PLAT
+  - build_bdist_wheel wheelhouse
 
 script:
   - install_run $PLAT
