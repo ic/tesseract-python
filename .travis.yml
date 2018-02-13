@@ -1,9 +1,7 @@
 env:
   global:
-    - REPO_DIR=tesseract-src
-    - BUILD_COMMIT=215866151e774972c9502282111b998d7a053562
-    - BUILD_DEPENDS=
-    - TEST_DEPENDS=
+    - REPO_DIR=tesseract_python
+    - BUILD_COMMIT=master
     - PLAT=x86_64
     - UNICODE_WIDTH=32
     - secure: "fs6r5FYVcWbMMihWWfQZESyrLvcv06aj4rxai8JTbQUBavB0W7CUDrWRUeu53Gt7rEk7XXn4YuSdaXJa1qQx0DVg31E5cZ/ZuuA/t2F6DCfv6RffRBZtpbZXXWK4WnLxia0CetTbKpY1l4cpoV38pcFeTUyqI38GctY8SjqxLNMm8PJ1kSgiYs+3a0sjI/7ddtbmnsmhxsy6/nGBzbfAxdUutXgEqfRPpALpqCxQgVrR0jbr2l4BH6jUwtlhXp9GnofYou+uOrSZh0tmO4MUWRFHTRP2dC/JsGeANE3dg6bAt+U8RrGcJYXM7eneuVdBsG6CTzVz8TACirRgde/bXn7JIby4YS8tGi+TN1UDPBVi22M+4JW4YQGcKVMIQqoOikqCLGE3Ike5JI71VAfKMQW9MOrg9iwb3/ZJlT9cqdcCN3nT0IeYdGSrrzuG6oggN+19OOEW2ow18n4PJnyDnTmMdsYjfWBC7y/+9eEuhzIgoBJRCnKdX/9QP703PtOPxtVu/yWQVC5F9BFGtwlqN2rS00Xd6bmjmnqUYrZz4VNNeM/GQGrPMZ986maykWRD7yEvy2ngwyuu8Y/OzF3DEV/ptpDt0no6tPP4x8L/mSHOslTZv0mMtmZV182Lobq87RM8ALm5J++FcZpRagm0IQkNiJpaErTlrI4oCiVK3dg="
@@ -91,9 +89,10 @@ before_install:
   - source multibuild/common_utils.sh
   - source multibuild/travis_steps.sh
   - before_install
+  - make
 
 install:
-  - make wheel
+  - build_wheel $REPO_DIR $PLAT
 
 script:
   - install_run $PLAT
