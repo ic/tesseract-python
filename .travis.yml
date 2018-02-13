@@ -88,11 +88,9 @@ before_install:
   - source multibuild/common_utils.sh
   - source multibuild/travis_steps.sh
   - before_install
-  # Make Leptonica and Tesseract
-  - make
 
 install:
-  - build_bdist_wheel wheelhouse
+  - make wheel
 
 script:
   - install_run $PLAT
