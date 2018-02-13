@@ -7,7 +7,7 @@ SHELL:=bash
 build: venv tesseract
 
 wheel: build
-	source venv/bin/activate && python setup.py bdist_wheel --plat-name=$(PLAT_NAME)_$(PLAT)
+	source venv/bin/activate && python setup.py bdist_wheel --plat-name=$(PLAT_NAME)_$(PLAT) --dist-dir=/io/wheelhouse
 
 distribute:
 	sh scripts/distribute.sh
