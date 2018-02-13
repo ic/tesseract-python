@@ -63,11 +63,11 @@ matrix:
   #      env:
   #        - MB_PYTHON_VERSION=3.6
   #        - PLAT=i686
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT_NAME=macosx
+  #    - os: osx
+  #      language: generic
+  #      env:
+  #        - MB_PYTHON_VERSION=2.7
+  #        - PLAT_NAME=macosx
   #    - os: osx
   #      language: generic
   #      env:
@@ -89,7 +89,6 @@ before_install:
   - source multibuild/common_utils.sh
   - source multibuild/travis_steps.sh
   - before_install
-  - make
 
 install:
   - build_wheel $REPO_DIR $PLAT
