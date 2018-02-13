@@ -10,10 +10,8 @@ wheel: build
 	source ./venv/bin/activate
 	python setup.py bdist_wheel
 
-distribute: wheel
-	source ./venv/bin/activate
-	pip install --upgrade twine
-	echo DISTRIBUTE TODO
+distribute:
+	sh scripts/distribute.sh
 
 leptonica:
 	sh scripts/leptonica/dep.sh
