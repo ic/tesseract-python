@@ -22,8 +22,7 @@ then
   # TODO
   echo "UNTESTED"
   echo "Getting dependencies with Yum."
-  yum list installed
-  yum install -y g++ \
+  yum install -v -y g++ \
     autoconf \
     automake \
     libtool \
