@@ -7,8 +7,7 @@ SHELL:=bash
 build: venv tesseract
 
 wheel: build
-	source ./venv/bin/activate
-	python setup.py bdist_wheel
+	source venv/bin/activate && python setup.py bdist_wheel
 
 distribute:
 	sh scripts/distribute.sh
