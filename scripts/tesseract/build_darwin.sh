@@ -18,6 +18,7 @@ pushd tesseract-src
 if [ -x '/opt/local/bin/port' ]
 then
   echo "Building with MacPorts."
+  PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
   LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
     --prefix=$PREFIX \
     --with-extra-libraries=/opt/local/lib \
@@ -30,6 +31,7 @@ elif [ -x '/usr/local/bin/brew' ]
 then
   # TODO
   echo "UNTESTED"
+  PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
   LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
     --prefix=$PREFIX \
     --with-extra-libraries=$LEPTONICA_HOME/lib \
