@@ -6,11 +6,11 @@ source scripts/common.sh
 
 WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 
-PREFIX=$WDIR/tesseract_python/tesseract
+TESSDATA=$WDIR/tesseract_python/tesseract/share/tessdata
 
-if [ -d $PREFIX/tesseract/share/tessdata ]
+if [ -d $TESSDATA ]
 then
-  pushd $PREFIX/tesseract/share/tessdata
+  pushd $TESSDATA
   curl --remote-name https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata
   popd
 else
