@@ -15,7 +15,7 @@ echo "Will build with Leptonica at $LEPTONICA_HOME"
 
 pushd tesseract-src
 ./autogen.sh
-LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH \
+LD_LIBRARY_PATH=$LEPTONICA_HOME/lib:$LD_LIBRARY_PATH \
 PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
 LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
   --prefix=$PREFIX \
