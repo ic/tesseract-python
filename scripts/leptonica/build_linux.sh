@@ -10,7 +10,7 @@ PREFIX=$WDIR/tesseract_python/leptonica
 mkdir -p $PREFIX
 
 pushd leptonica-src
-./autobuild
+ACLOCAL_PATH=/usr/share/aclocal:$ACLOCAL_PATH ./autobuild
 ./configure --prefix=$PREFIX
 make
 make install
