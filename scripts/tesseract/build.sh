@@ -11,3 +11,5 @@ else
   echo "System not supported. Please use either Linux or Darwin."
   exit 1
 fi
+
+bash scripts/tesseract/post_build.sh
