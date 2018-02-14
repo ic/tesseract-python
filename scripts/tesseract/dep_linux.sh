@@ -22,16 +22,15 @@ then
   # TODO
   echo "UNTESTED"
   echo "Getting dependencies with Yum."
-  yum install g++ \
+  yum install -y gcc \
     autoconf \
     automake \
     libtool \
-    autoconf-archive \
-    pkg-config \
-    libpng-dev \
-    libjpeg8-dev \
-    libtiff5-dev \
-    zlib1g-dev
+    pkgconfig \
+    libpng-devel \
+    libjpeg-devel \
+    libtiff-devel \
+    zlib-devel
 else
   echo "Could not find Apt or Yum in standard locations, aborting."
 fi
