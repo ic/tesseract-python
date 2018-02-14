@@ -3,6 +3,8 @@
 #
 
 SHELL:=bash
+PLAT_NAME ?= manylinux1
+PLAT ?= x86_64
 
 build: venv tesseract
 
