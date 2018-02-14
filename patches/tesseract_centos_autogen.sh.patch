@@ -1,0 +1,13 @@
+diff --git a/tesseract-src/autogen.sh b/tesseract-src/autogen.sh
+index 6bbec85..8556c6b 100755
+--- a/tesseract-src/autogen.sh
++++ b/tesseract-src/autogen.sh
+@@ -79,7 +79,7 @@ bail_out()
+ mkdir -p config
+
+ echo "Running aclocal"
+-aclocal -I config || bail_out
++aclocal -I config -I /usr/share/aclocal || bail_out
+
+ # --- Step 2:
+
