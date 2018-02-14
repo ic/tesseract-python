@@ -10,7 +10,7 @@ wheel: build
 	source venv/bin/activate && python setup.py --verbose bdist_wheel --plat-name=$(PLAT_NAME)_$(PLAT)
 
 distribute:
-	sh scripts/distribute.sh
+	bash scripts/distribute.sh
 
 leptonica:
 	sh scripts/leptonica/dep.sh
