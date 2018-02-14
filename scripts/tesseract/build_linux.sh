@@ -13,15 +13,52 @@ LEPTONICA_HOME=$WDIR/tesseract_python/leptonica
 
 echo "Will build with Leptonica at $LEPTONICA_HOME"
 
-pushd tesseract-src
-./autogen.sh
-LD_LIBRARY_PATH=$LEPTONICA_HOME/lib:$LD_LIBRARY_PATH \
-PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
-LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
-  --prefix=$PREFIX \
-  LDFLAGS=-L$LEPTONICA_HOME/lib \
-  CPPFLAGS=-I$LEPTONICA_HOME/include \
-  LIBS="-llept"
+if [ -x '/usr/bin/apt-get' ]
+then
+  pushd tesseract-src
+  # TODO
+  echo "UNTESTED"
+  echo "Building with an Apt environment."
+  PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
+  LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
+    --prefix=$PREFIX \
+    LDFLAGS=-L$LEPTONICA_HOME/lib \
+    CPPFLAGS=-I$LEPTONICA_HOME/include \
+    LIBS="-llept"
+elif [ -x '/usr/bin/yum' ]
+then
+  # TODO
+  echo "UNTESTED"
+  echo "Building with a Yum environment."
+
+  is_centos=`cat /etc/issue | grep -i centos`
+  if [ -n "$is_centos" ]
+  then
+    # CentOS is missing autconf-archive, necessary for Tesseract.
+    pushd /tmp/tesseract_python
+    git clone https://github.com/ic/autoconf-archive-rpmbuilder.git
+    pushd autoconf-archive-rpmbuilder
+    ./install
+    popd
+    rm -rf autoconf-archive-rpmbuilder
+    popd
+
+    # The PyPa build environment for manylinux relies on CentOS,
+    #   where many paths need to be fixed. Patch some.
+    git apply patches/tesseract_centos_autogen.sh.patch
+  fi
+
+  pushd tesseract-src
+  ./autogen.sh
+  LD_LIBRARY_PATH=$LEPTONICA_HOME/lib:$LD_LIBRARY_PATH \
+  PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
+  LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
+    --prefix=$PREFIX \
+    LDFLAGS=-L$LEPTONICA_HOME/lib \
+    CPPFLAGS=-I$LEPTONICA_HOME/include \
+    LIBS="-llept"
+fi
+
 make
 make install
 popd
