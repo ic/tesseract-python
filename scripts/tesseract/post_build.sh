@@ -11,7 +11,7 @@ TESSDATA=$WDIR/tesseract_python/tesseract/share/tessdata
 if [ -d $TESSDATA ]
 then
   pushd $TESSDATA
-  curl --remote-name https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata
+  curl --location --remote-name https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata
   popd
 else
   echo "Please build Tesseract before running this script."
