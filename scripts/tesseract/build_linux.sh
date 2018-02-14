@@ -35,13 +35,15 @@ then
   if [ -n "$is_centos" ]
   then
     # CentOS is missing autconf-archive, necessary for Tesseract.
-    pushd /tmp/tesseract_python
+    AUTOCONF_ARCH_WDIR=/tmp/tesseract_python/autoconf-archive
+    mkdir -p $AUTOCONF_ARCH_WDIR
+    pushd $AUTOCONF_ARCH_WDIR
     git clone https://github.com/ic/autoconf-archive-rpmbuilder.git
     pushd autoconf-archive-rpmbuilder
     ./install
     popd
-    rm -rf autoconf-archive-rpmbuilder
     popd
+    rm -rf $AUTOCONF_ARCH_WDIR
 
     # The PyPa build environment for manylinux relies on CentOS,
     #   where many paths need to be fixed. Patch some.
