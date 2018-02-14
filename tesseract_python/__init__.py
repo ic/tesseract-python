@@ -2,7 +2,7 @@ import os
 import pytesseract
 
 os.environ['TESSDATA_PREFIX'] = os.sep.join([
-    os.dirname(__file__),
+    os.path.dirname(__file__),
     'tesseract',
     'share',
     'tessdata'
