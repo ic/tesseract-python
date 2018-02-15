@@ -35,9 +35,9 @@ for dir_path, _, file_names in os.walk('tesseract_python/tesseract'):
         package_data_files.append(fpath)
 
 leptonica = [
-    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so']),
-    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so.5']),
-    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so.5.0.1']),
+    os.sep.join(['leptonica', 'lib', 'liblept.so']),
+    os.sep.join(['leptonica', 'lib', 'liblept.so.5']),
+    os.sep.join(['leptonica', 'lib', 'liblept.so.5.0.1']),
 ]
 for f in leptonica:
     package_data_files.append(f)
