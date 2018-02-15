@@ -22,8 +22,14 @@ if tesseract_version is None:
 # Configure the package data files to include.
 package_data_files = []
 for dir_path, _, file_names in os.walk('tesseract_python/tesseract'):
+    # Slim down the package by removing man pages.
+    if 'share/man' in dir_path:
+        continue
     path_elements = dir_path.split(os.sep)[1:]
     for f in file_names:
+        # Slim down the package by removing unused bins.
+        if f == 'libtesseract.la' or f == 'libtesseract.a':
+            continue
         fpath = os.sep.join(path_elements + [f])
         package_data_files.append(fpath)
 package_data = { 'tesseract_python': package_data_files }
