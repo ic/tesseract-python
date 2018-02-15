@@ -21,6 +21,7 @@ if tesseract_version is None:
 
 # Configure the package data files to include.
 package_data_files = []
+
 for dir_path, _, file_names in os.walk('tesseract_python/tesseract'):
     # Slim down the package by removing man pages.
     if 'share/man' in dir_path:
@@ -32,6 +33,14 @@ for dir_path, _, file_names in os.walk('tesseract_python/tesseract'):
             continue
         fpath = os.sep.join(path_elements + [f])
         package_data_files.append(fpath)
+
+leptonica = [
+    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so']),
+    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so.5']),
+    os.sep.join(['tesseract_python', 'leptonica', 'liblept.so.5.0.1']),
+for f in leptonica:
+    package_data_files.append(f)
+
 package_data = { 'tesseract_python': package_data_files }
 
 
