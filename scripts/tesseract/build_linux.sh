@@ -27,8 +27,6 @@ then
     LIBS="-llept"
 elif [ -x '/usr/bin/yum' ]
 then
-  # TODO
-  echo "UNTESTED"
   echo "Building with a Yum environment."
 
   is_centos=`cat /etc/issue | grep -i centos`
