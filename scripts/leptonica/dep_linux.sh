@@ -42,22 +42,31 @@ source scripts/common.sh
 WDIR="$(get_realpath $(dirname $(dirname $(dirname "$0"))))"
 
 
-LIB_DIR=$WDIR/tesseract_python/lib
-mkdir -p $LIB_DIR
-
 SRC_DIR=$WDIR/tmp/src
 mkdir -p $SRC_DIR
 
 BUILD_DIR=$WDIR/tmp/build
 mkdir -p $BUILD_DIR
 
+LIB_DIR=$BUILD_DIR/lib
+mkdir -p $LIB_DIR
+
+INCLUDE_DIR=$BUILD_DIR/include
+mkdir -p $INCLUDE_DIR
+
 # libjpeg
+LIBJPEG_TARGET_INCLUDE=$INCLUDE_DIR/libjpeg
+mkdir -p $LIBJPEG_TARGET_INCLUDE
 LIBJPEG=$SRC_DIR/libjpeg
-git clone https://github.com/libjpeg-turbo/libjpeg-turbo.git $LIBJPEG
-git checkout 1.5.3
+if [ ! -d $LIBJPEG ]
+then
+  git clone --recursive --quiet https://github.com/libjpeg-turbo/libjpeg-turbo.git $LIBJPEG
+fi
 pushd $LIBJPEG
+git checkout --quiet --detach 1.5.3
 autoreconf -fiv
 ./configure
 make
-cp .libs/libjpeg.so.62.2.0 .libs/libjpeg.so $LIB_DIR
+cp .libs/libjpeg.a $LIB_DIR
+cp *.h $LIBJPEG_TARGET_INCLUDE
 popd
