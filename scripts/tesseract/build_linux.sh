@@ -22,7 +22,7 @@ then
   PKG_CONFIG_PATH=$LEPTONICA_HOME/lib/pkgconfig \
   LIBLEPT_HEADERSDIR=$LEPTONICA_HOME/include ./configure \
     --prefix=$PREFIX \
-    LDFLAGS=-L$LEPTONICA_HOME/lib \
+    LDFLAGS="-static -L$LEPTONICA_HOME/lib" \
     CPPFLAGS=-I$LEPTONICA_HOME/include \
     LIBS="-llept"
 elif [ -x '/usr/bin/yum' ]
