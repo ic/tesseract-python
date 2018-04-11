@@ -40,7 +40,8 @@ then
     CXX=clang++ \
     CFLAGS="-m64" \
     LDFLAGS="-L/usr/local/opt/icu4c/lib -L$LEPTONICA_HOME/lib" \
-    CPPFLAGS="-I/usr/local/opt/icu4c/include -I$LEPTONICA_HOME/include"
+    CPPFLAGS="-I/usr/local/opt/icu4c/include -I$LEPTONICA_HOME/include" \
+    CXXFLAGS=-Wa,-q
 else
   echo "Could not find whether to assume MacPorts or Homebrew, aborting."
 fi
