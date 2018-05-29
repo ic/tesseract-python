@@ -3,13 +3,11 @@
 #
 
 SHELL:=bash
-PLAT_NAME ?= manylinux1
-PLAT ?= x86_64
 
 build: venv tesseract
 
 wheel: build
-	source venv/bin/activate && python setup.py --verbose bdist_wheel --plat-name=$(PLAT_NAME)_$(PLAT)
+	source venv/bin/activate && python setup.py --verbose bdist_wheel
 
 distribute:
 	bash scripts/distribute.sh
