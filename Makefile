@@ -34,4 +34,4 @@ venv-clean:
 	rm -rf venv
 
 clean: tesseract-clean leptonica-clean
-	rm -rf build dist tesseract_python.egg-info
+	rm -rf build dist tesseract_python.egg-info tmp

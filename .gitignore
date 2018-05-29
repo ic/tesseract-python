@@ -104,3 +104,6 @@ ENV/
 
 # VIM
 *.swp
+
+# Temporary files
+tmp/
