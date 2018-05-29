@@ -7,7 +7,7 @@ then
   # TODO
   echo "UNTESTED"
   echo "Getting dependencies with Apt."
-  apt-get --assume-yes install g++ \
+  sudo apt-get --assume-yes install g++ \
     autoconf \
     automake \
     libtool \
@@ -23,7 +23,7 @@ then
   # TODO
   echo "UNTESTED"
   echo "Getting dependencies with Yum."
-  yum install -y gcc \
+  sudo yum install -y gcc \
     autoconf \
     automake \
     libtool \
