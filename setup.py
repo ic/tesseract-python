@@ -58,6 +58,7 @@ setup(
     license='MIT',
     description='Self-contained Python module to Tesseract.',
     long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     package_data=package_data,
     install_requires=dependencies,
