@@ -1,6 +1,9 @@
 tesseract-python - Tesseract binary as a Python module
 ======================================================
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tesseract-python.svg)
+![PyPI](https://img.shields.io/pypi/v/tesseract-python.svg)
+
 Current Scope
 -------------
 
