@@ -20,7 +20,7 @@ This module works on a range of configurations, but the PyPi package is more lim
 * No line/column: No plan to date.
 
 
-###Configuration
+### Configuration
 
 * Tesseract 3.05.01
 * Leptonica 1.74.4
