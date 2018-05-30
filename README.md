@@ -1,16 +1,51 @@
 tesseract-python - Tesseract binary as a Python module
 ======================================================
 
-WIP: This module is not yet functional.
+Current Scope
+-------------
 
-The first version is targetting Tesseract 3.05.01.
+This module works on a range of configurations, but the PyPi package is more limited at this time.
 
-Status
-------
+| Platforms    | Python 2.7 | Python 3.6 |
+| :-------:    | :--------: | :--------: |
+| Linux x86_64 |  PyPi      | Source     |
+| MacOS 10.13  |  PyPi      |            |
+| Windows      |            |            |
 
-* The current version builds and works fine on Darwin, Ubuntu, and CentOS.
-* The PyPi release process is not working yet, so a simple `pip install` is not yet at reach, except for Linux x86_64 (manually released).
-* The current code exposes the [pytesseract](https://github.com/madmaze/pytesseract) module, configured with the embdedded Tesseract. It means all calls are shelled out to a `tesseract` binary.
+### Legend
+
+* PyPi: Available on PyPi.
+* Source: Working with setup from source.
+* Empty: Planned for some future release.
+* No line/column: No plan to date.
+
+
+### Configuration
+
+* Tesseract 3.05.01
+* Leptonica 1.74.4
+* Pytesseract 0.2.0
+
+
+Setup
+-----
+
+The module setup relies on building Leptonica, then Tesseract, and finally producing a `bdist_wheel`. The procedure is automated with `make`.
+
+    git clone https://github.com/ic/tesseract-python.git
+    cd tesseract-python
+    make wheel
+
+The procedure takes quite some time to complete. The wheel is availble under `dist`.
+
+### Note on package managers
+
+The build scripts rely on the following defaults:
+
+* Apt on the Debian family, Yum on the Redhat family.
+* On MacOS, the script tries first MacPorts, then Homebrew.
+
+Important: All managers have been tested, *except* Homebrew. If a Homebrew-based fails, please compare with the MacPorts version under `scripts/{leptonica,tesseract}/dep_darwin.sh` (a package may simply be missing or misnamed), and please consider a PR.
 
 
 Roadmap
