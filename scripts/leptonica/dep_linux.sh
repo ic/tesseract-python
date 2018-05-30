@@ -32,6 +32,7 @@ then
     git \
     libpng-devel \
     libtiff-devel \
+    libjpeg-devel \
     zlib-devel
 else
   echo "Could not find Apt or Yum in standard locations, aborting."
