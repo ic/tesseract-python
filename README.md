@@ -7,7 +7,7 @@ Current Scope
 This module works on a range of configurations, but the PyPi package is more limited at this time.
 
 | Platforms    | Python 2.7 | Python 3.6 |
-| ---------    | ---------- | ---------- |
+| :-------:    | :--------: | :--------: |
 | Linux x86_64 |  PyPi      | Source     |
 | MacOS 10.13  |  PyPi      |            |
 | Windows      |            |            |
