@@ -16,7 +16,8 @@ This module works on a range of configurations, but the PyPi package is more lim
 
 * PyPi: Available on PyPi.
 * Source: Working with setup from source.
-* Empty: No plan at this time.
+* Empty: Planned for some future release.
+* No line/column: No plan to date.
 
 
 ###Configuration
