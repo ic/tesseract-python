@@ -3,6 +3,16 @@ from setuptools import setup, find_packages
 import os
 import re
 
+try:
+    from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
+    class bdist_wheel(_bdist_wheel):
+        def finalize_options(self):
+            _bdist_wheel.finalize_options(self)
+            self.root_is_pure = False
+except ImportError:
+    bdist_wheel = None
+
+
 # Get the long description from the README.
 with open('README.md') as f:
     long_description = f.read()
@@ -51,6 +61,7 @@ setup(
     description='Self-contained Python module to Tesseract.',
     long_description=long_description,
     long_description_content_type="text/markdown",
+    cmdclass={'bdist_wheel': bdist_wheel},
     packages=find_packages(),
     package_data=package_data,
     install_requires=dependencies,
