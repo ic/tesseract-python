@@ -8,19 +8,16 @@ env:
     - secure: "Bj0dUlBfOt1MpkJZYGIo7TzyvwJJBpxn+huerS8DzvY9yUYDhxyMxTPIbx7eiN4ovRF3P4nvuowyE8W24fne6dM4XfSjh5+3ktW8AqwbALZ3VhHs8HH1zPkkCRONcBPjuwu8XF6j7ZHu033r17H+4QJWKnabgC9bsNDy2jA+N/0tEk+ImsGakqugvGyEYXrRp4oQiyJ9Zvo8LlA18oB0s9ybjnrV9vQwMuOxtL+HEd7MRiJ5pLymjBt/i/JwVPoADyg2KlOHDQT/+ChxlRTF3Ee7Sf8Q5VBQGCP7mdy0aQXDmo0baFKSBjRIIUdGlNYI4PBPmX9Tbt1p/SQcsFm7M5bkp/Z3orZdBB3YjuH+hevOWjOki8sFTL297y1r5Xk1v1bgKl6NlCsSan4uWgBsoZpmAJI04uLGtaX+Dare1ybmxwT8dORyncR7x/bXgDbwafWjOruQkrfhrMcPA33IDBEvp6uAmnLlW+eTgZWq2h79IlWNpqWQNs2lZ2OQM8NvNqnK47fOlVltUWLVamrx+l5JHAi7bi5C39KgKb1KxekdGGpbw20dEqRT3Fc5XI5NYt3xyEI8Mz5V/MUnPEWqykbGXffIJBGjOPGwO4NlowRmzsprIx2ypA9AX5TH/rLq7WPixzT6JFu9bLXLzf55AY9Xt+ErpJycQO/GFjRygP8="
 
 language: python
-python: 3.5
+python: 3.7
 sudo: required
-dist: trusty
+dist: bionic
 services: docker
 
 matrix:
-  exclude:
-    # Exclude the default Python 3.5 build
-    - python: 3.5
   include:
     - os: linux
       env:
-        - MB_PYTHON_VERSION=2.7
+        - MB_PYTHON_VERSION=3.7
         - PLAT_NAME=linux
   #    - os: linux
   #      env:
